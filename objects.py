@@ -25,3 +25,16 @@ class Client:
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
+
+
+class AdoptSystem:
+    def __init__(self):
+        self.animals = []
+        self.clients = []
+
+    def show_clients(self):
+        return print(self.clients)
+
+    def register_client(self, first_name, last_name, cpf):
+        client = Client(first_name, last_name, cpf)
+        self.clients.append(client.__str__())
