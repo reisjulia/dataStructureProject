@@ -38,3 +38,25 @@ class AdoptSystem:
     def register_client(self, first_name, last_name, cpf):
         client = Client(first_name, last_name, cpf)
         self.clients.append(client.__str__())
+
+    class Queue:
+        def __init__(self):
+            self.queue = []
+
+        def add_client(self, client):
+            self.queue.append(client)
+
+        def remove_client(self):
+            if len(self.queue) > 0:
+                return self.queue.pop(0)
+            else:
+                return 'Fila Vazia!'
+
+        def first_client(self):
+            if len(self.queue) > 0:
+                return self.queue[0]
+            else:
+                return 'Fila Vazia!'
+
+        def size(self):
+            return len(self.queue)
