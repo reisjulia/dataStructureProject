@@ -1,62 +1,75 @@
+from fila import Fila
+
+
 class Animal:
-    def __init__(self, race, color, age, animal_port, particularity):
+    def __init__(self, type, race):
+        self.type = type
         self.race = race
-        self.age = age
-        self.color = color
-        self.animal_port = animal_port
-        self.particularity = particularity
 
-
-class Canine(Animal):
-    def __init__(self, race, color, age, animal_port, particularity):
-        super().__init__(race, color, age, animal_port, particularity)
-
-
-class Feline(Animal):
-    def __init__(self, race, color, age, animal_port, particularity):
-        super().__init__(race, color, age, animal_port, particularity)
+    def __str__(self):
+        return f'{self.race}'
 
 
 class Client:
-    def __init__(self, first_name, last_name, cpf):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.cpf = cpf
+    def __init__(self, user, phone_number, interested_race):
+        self.user = user
+        self.phone_number = phone_number
+        self.interested_race = interested_race
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.user}'
+
+
+def animals_binary_search(animals, searched_type):
+    left = 0
+    right = len(animals) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if animals[mid] == searched_type:
+            return animals[mid]
+        elif animals[mid] < searched_type:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return print('Not Found!')
 
 
 class AdoptSystem:
     def __init__(self):
         self.animals = []
         self.clients = []
+        self.queue = Fila()
 
     def show_clients(self):
         return print(self.clients)
 
-    def register_client(self, first_name, last_name, cpf):
-        client = Client(first_name, last_name, cpf)
+    def show_animals(self):
+        return print(self.animals)
+
+    def register_client(self):
+        client = Client('username', 'phone_number', 'interested_race')
+        client.user = str(input('Username: '))
+        client.phone_number = str(input('Phone Number: '))
+        client.interested_race = str(input('Interested Race: '))
+        self.queue.add_client(client)
         self.clients.append(client.__str__())
 
-    class Queue:
-        def __init__(self):
-            self.queue = []
+    def register_animal(self):
+        animal = Animal('type', 'race')
+        animal.type = str(input('Tipo: '))
+        animal.race = str(input('Raça: '))
+        return self.animals.append(animal.__str__())
 
-        def add_client(self, client):
-            self.queue.append(client)
-
-        def remove_client(self):
-            if len(self.queue) > 0:
-                return self.queue.pop(0)
-            else:
-                return 'Fila Vazia!'
-
-        def first_client(self):
-            if len(self.queue) > 0:
-                return self.queue[0]
-            else:
-                return 'Fila Vazia!'
-
-        def size(self):
-            return len(self.queue)
+    def search_queue(self):
+        try:
+            client = self.queue.first_client()
+            search = animals_binary_search(sorted(self.animals), client.interested_race)
+            if search:
+                print(f"Encontramos um {search}.")
+                return self.queue.remove_client()
+            return self.queue.remove_client()
+        except:
+            print('Sem clientes na fila!')
