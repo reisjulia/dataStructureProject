@@ -17,6 +17,7 @@ Com isso, foi desenvolvido o Cuide&Ame, onde será possível cadastrar animais d
                                               Cuide&Ame - Primeiros passos
 
 - Após aparecer o menu principal, escolhendo a opção 1 abrirá dois input para o usuário inserir os dados do animal
+
 ![image](https://github.com/reisjulia/dataStructureProject/assets/102388580/5ea1ba4d-6551-40e8-993f-b5b6d14af6e8)
               
                             
