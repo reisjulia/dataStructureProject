@@ -20,4 +20,9 @@ Com isso, foi desenvolvido o Cuide&Ame, onde será possível cadastrar animais d
 
 ![image](https://github.com/reisjulia/dataStructureProject/assets/102388580/5ea1ba4d-6551-40e8-993f-b5b6d14af6e8)
               
-                            
+ - Escolhendo a opção 2, o sistema solicitará que o usuário insira o nome, telefone e raça do animal de preferência
+ - Ao escolhermos a opção de número 3, o sistema verificará e retornará se houve uma combinação com a preferência de algum 
+ usuário cadastrado com um animal cadastrado;
+ - Já na opção 4, será exibido os animais cadastrados e não adotados ou combinados com um cadastro de usuário;
+ - Na opção 5, será exibido os clientes cadastrados e não combinados com um animal;
+ 
