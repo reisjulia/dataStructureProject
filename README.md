@@ -43,3 +43,5 @@ Com isso, foi desenvolvido o Cuide&Ame, onde será possível cadastrar animais d
 
  - Ao escolhermos a opção de número 7, o sistema será finalizado.
  
+ ![image](https://github.com/reisjulia/dataStructureProject/assets/102388580/a639f4db-fcc3-48b4-8ac9-e73020cb8483)
+
